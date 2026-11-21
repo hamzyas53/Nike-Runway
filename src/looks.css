@@ -1,0 +1,106 @@
+/* Lookbook (All Looks) Styles - Two Columns Per Row */
+.looks-layout{display:flex;flex-direction:column;min-height:calc(100vh - 88px);background:#fff}
+
+.looks-hero{
+  padding:48px 40px 32px;border-bottom:1px solid #e4e4e4;background:#fff;
+  display:flex;flex-direction:column;gap:12px;max-width:960px
+}
+.looks-hero h1{margin:0;font-size:38px;font-weight:400;letter-spacing:-.02em;line-height:1.1}
+.looks-hero p{margin:0;font-size:14px;color:#66625c;line-height:1.6;max-width:62ch}
+
+.looks-filter-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:16px 40px;border-bottom:1px solid #e4e4e4;background:#fafafa;position:sticky;top:0;z-index:30
+}
+.looks-filter-pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.looks-filter-pills::-webkit-scrollbar{display:none}
+.look-pill{
+  padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  border:1px solid #c8c8c8;background:#fff;color:#151413;border-radius:20px;cursor:pointer;
+  transition:all .2s ease;white-space:nowrap
+}
+.look-pill:hover{border-color:#151413}
+.look-pill.active{background:#151413;color:#fff;border-color:#151413}
+
+/* Two Columns Per Row Grid */
+.looks-container{
+  display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:36px;
+  padding:40px;max-width:1440px;margin:0 auto;width:100%
+}
+
+/* Individual Look Card in 2-Column Grid */
+.look-editorial-card{
+  display:flex;flex-direction:column;gap:20px;border:1px solid #e4e4e4;border-radius:4px;
+  padding:24px;background:#fff;transition:all .3s ease;position:relative
+}
+.look-editorial-card:hover{
+  border-color:#151413;box-shadow:0 12px 32px -12px rgba(0,0,0,.15)
+}
+
+/* Model Showcase Stage */
+.look-model-col{
+  position:relative;height:440px;display:flex;align-items:flex-end;justify-content:center;
+  background:#fafafa;border-radius:3px;overflow:hidden;padding:16px
+}
+.look-model-col img{
+  height:95%;max-height:400px;width:auto;object-fit:contain;object-position:50% 100%;
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.08));transition:transform .4s ease
+}
+.look-editorial-card:hover .look-model-col img{transform:scale(1.03)}
+.look-model-shadow{
+  position:absolute;left:50%;bottom:12px;width:80%;height:18px;transform:translateX(-50%);
+  background:radial-gradient(closest-side, rgba(20,16,12,.35), rgba(20,16,12,.1) 50%, transparent 80%);
+  filter:blur(3px);pointer-events:none
+}
+
+/* Header & Meta */
+.look-details-col{display:flex;flex-direction:column;gap:18px;flex:1 1 auto}
+.look-header-badge{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#888}
+.look-title{margin:4px 0 6px;font-size:24px;font-weight:400;letter-spacing:-.01em}
+.look-desc{margin:0;font-size:13px;color:#66625c;line-height:1.55}
+
+/* Pieces List */
+.look-pieces-list{display:flex;flex-direction:column;gap:10px;border-top:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;padding:14px 0}
+.look-piece-row{
+  display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center
+}
+.look-piece-thumb{width:48px;height:48px;background:#fafafa;border:1px solid #eee;border-radius:2px;overflow:hidden;display:grid;place-items:center}
+.look-piece-thumb img{max-width:100%;max-height:100%;object-fit:cover}
+.look-piece-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.look-piece-vendor{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.look-piece-name{font-size:12px;font-weight:500;color:#151413;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.look-piece-name:hover{text-decoration:underline}
+.look-piece-price{font-size:12px;color:#151413;font-weight:600}
+
+/* Bundle Price & Actions */
+.look-bundle-footer{
+  display:flex;flex-direction:column;gap:14px;background:#f8f8f8;padding:16px;border-radius:4px;border:1px solid #e4e4e4;margin-top:auto
+}
+.look-bundle-pricing-row{display:flex;justify-content:space-between;align-items:baseline}
+.look-bundle-title{font-size:12px;font-weight:600}
+.look-bundle-note{font-size:11px;color:#66625c}
+.look-bundle-prices{display:flex;gap:8px;align-items:baseline}
+.look-bundle-prices s{font-size:11px;color:#66625c}
+.look-bundle-prices strong{font-size:18px;font-weight:600;color:#151413}
+
+.look-actions-row{display:flex;gap:10px;flex-wrap:wrap}
+.look-add-bundle-btn{
+  flex:1;min-width:180px;min-height:44px;background:#151413;color:#fff;border:0;
+  font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:all .2s ease
+}
+.look-add-bundle-btn:hover{background:#000}
+.look-view-runway-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 16px;
+  border:1px solid #c8c8c8;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:#151413;background:#fff;text-decoration:none;transition:all .2s ease;min-height:44px
+}
+.look-view-runway-link:hover{border-color:#151413;background:#151413;color:#fff}
+
+@media (max-width:960px){
+  .looks-container{grid-template-columns:1fr;gap:24px;padding:24px 20px 60px}
+  .looks-hero{padding:32px 20px 20px}
+  .looks-filter-bar{padding:12px 20px}
+  .look-model-col{height:380px}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "nike-try-the-look-runway",
+  "version": "1.0.0",
+  "description": "Nike 'Try the Look.' Streetwear Runway 2026 - Interactive 3D Carousel & Multi-page Experience",
+  "type": "module",
+  "scripts": {
+    "build": "node build-all.mjs",
+    "start": "node -e \"const http=require('http'),fs=require('fs'),path=require('path');http.createServer((req,res)=>{let f=req.url==='/'?'index.html':req.url.replace(/^\\//,'');if(!fs.existsSync(f))f=f+'.html';if(!fs.existsSync(f)){res.writeHead(404);res.end('Not found');return;}res.writeHead(200,{'Content-Type':f.endsWith('.html')?'text/html':f.endsWith('.css')?'text/css':f.endsWith('.js')?'application/javascript':'application/octet-stream'});fs.createReadStream(f).pipe(res);}).listen(3000,()=>console.log('Server running at http://localhost:3000'))\""
+  },
+  "keywords": [
+    "nike",
+    "streetwear",
+    "runway",
+    "3d-carousel",
+    "shopify-lookbook"
+  ],
+  "author": "",
+  "license": "MIT"
+}

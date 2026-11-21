@@ -1,0 +1,110 @@
+/* Hand Rail Pro Scene Rail Styles */
+.rail-layout{display:flex;flex-direction:column;height:calc(100vh - 88px);background:#fff;overflow:hidden}
+
+.rail-bar{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+  gap:20px;padding:20px 40px;border-bottom:1px solid #e4e4e4;background:#fff;z-index:20
+}
+.rail-bar-title h1{margin:0;font-size:26px;font-weight:400;letter-spacing:-.02em}
+.rail-bar-title p{margin:4px 0 0;font-size:12px;color:#66625c}
+
+.rail-viewport{
+  position:relative;flex:1 1 auto;width:100%;overflow:hidden;
+  cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y;background:#fff;
+  padding-top:20px
+}
+.rail-viewport.is-dragging{cursor:grabbing}
+
+.rail-track{
+  position:absolute;left:0;top:0;bottom:0;display:flex;align-items:flex-end;
+  gap:100px;padding:30px 100px 90px;will-change:transform;transition:transform .04s linear
+}
+
+.rail-card{
+  position:relative;flex:0 0 320px;height:62vh;max-height:540px;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;cursor:pointer
+}
+.rail-figure{position:relative;width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center}
+.rail-figure img{height:100%;max-height:100%;width:auto;object-fit:contain;object-position:50% 100%;pointer-events:none;-webkit-user-drag:none;transition:transform .5s ease}
+.rail-card:hover .rail-figure img{transform:scale(1.04)}
+
+.rail-shadow{
+  position:absolute;left:50%;bottom:0;width:120%;height:24px;transform:translateX(-50%);
+  background:radial-gradient(closest-side, rgba(20,16,12,.35), rgba(20,16,12,.1) 50%, transparent 80%);
+  filter:blur(3px);pointer-events:none
+}
+
+.rail-card-meta{
+  position:absolute;bottom:-50px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;white-space:nowrap
+}
+.rail-look-num{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#888}
+.rail-look-name{font-size:14px;font-weight:500;color:#151413}
+
+.rail-inspect-btn{
+  margin-top:2px;padding:4px 12px;font-size:10px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;background:#151413;color:#fff;border:1px solid #151413;border-radius:20px;
+  cursor:pointer;transition:all .2s ease;z-index:10
+}
+.rail-inspect-btn:hover{background:#000;transform:scale(1.05)}
+
+/* Inspect Drawer */
+.rail-drawer{
+  position:fixed;right:0;top:88px;bottom:0;width:440px;max-width:100%;background:#fff;
+  border-left:1px solid #c8c8c8;box-shadow:-12px 0 36px rgba(0,0,0,.15);z-index:50;
+  display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)
+}
+.rail-drawer.is-open{transform:translateX(0)}
+.drawer-head{
+  display:flex;justify-content:space-between;align-items:center;padding:24px 28px;border-bottom:1px solid #e4e4e4
+}
+.drawer-head h3{margin:0;font-size:20px;font-weight:500}
+.drawer-close{background:none;border:0;font-size:26px;cursor:pointer;padding:4px;line-height:1}
+
+.drawer-body{padding:24px 28px;display:flex;flex-direction:column;gap:20px;overflow-y:auto;flex:1 1 auto}
+.drawer-items{display:flex;flex-direction:column;gap:14px}
+.drawer-item{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:center;padding-bottom:14px;border-bottom:1px solid #eee}
+.drawer-item img{width:54px;height:54px;object-fit:cover;background:#fafafa}
+
+.drawer-pricing{
+  display:flex;justify-content:space-between;align-items:baseline;padding-top:10px;border-top:1px solid #e4e4e4
+}
+.drawer-pricing s{font-size:12px;color:#66625c}
+.drawer-pricing strong{font-size:20px;font-weight:600;color:#151413}
+
+.drawer-actions{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.drawer-cta{
+  min-height:50px;background:#151413;color:#fff;border:0;font-size:12px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s ease
+}
+.drawer-cta:hover{background:#000}
+.drawer-remix{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px;
+  border:1px solid #c8c8c8;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:#151413;text-decoration:none;transition:all .2s ease
+}
+.drawer-remix:hover{background:#151413;color:#fff;border-color:#151413}
+
+/* Scrubber Rail at Bottom */
+.rail-footer-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 40px;
+  border-top:1px solid #e4e4e4;background:#fff;z-index:20
+}
+.rail-ticks{display:flex;gap:12px;align-items:center}
+.rail-tick-btn{
+  background:none;border:0;font-size:11px;font-weight:600;color:#888;cursor:pointer;
+  padding:6px 10px;border-radius:14px;transition:all .2s ease
+}
+.rail-tick-btn:hover{color:#151413}
+.rail-tick-btn.active{background:#151413;color:#fff}
+
+.rail-hint{font-size:11px;color:#888;display:flex;align-items:center;gap:6px}
+
+@media (max-width:768px){
+  .rail-bar{padding:14px 20px}
+  .rail-footer-bar{padding:10px 20px}
+  .rail-drawer{width:100%}
+  .rail-track{gap:60px;padding:20px 60px 80px}
+  .rail-card{flex:0 0 250px;height:55vh}
+}

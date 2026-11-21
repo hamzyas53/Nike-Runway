@@ -1,0 +1,49 @@
+/* About Page Styles */
+.about-layout{display:flex;flex-direction:column;min-height:calc(100vh - 88px);background:#fff}
+
+.about-hero{
+  padding:64px 40px 48px;border-bottom:1px solid #e4e4e4;background:#fff;
+  display:flex;flex-direction:column;gap:16px;max-width:920px;margin:0 auto;width:100%
+}
+.about-kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#888}
+.about-hero h1{margin:0;font-size:44px;font-weight:400;letter-spacing:-.02em;line-height:1.05}
+.about-hero p{margin:0;font-size:16px;color:#66625c;line-height:1.6}
+
+.about-content{
+  max-width:920px;margin:0 auto;width:100%;padding:48px 40px 80px;display:flex;flex-direction:column;gap:48px
+}
+
+.about-section{display:flex;flex-direction:column;gap:16px}
+.about-section h2{margin:0;font-size:24px;font-weight:500;letter-spacing:-.01em}
+.about-section p{margin:0;font-size:14px;color:#444;line-height:1.75}
+
+.about-grid-features{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;margin-top:12px
+}
+.about-feat-card{
+  padding:24px;background:#fafafa;border:1px solid #e4e4e4;border-radius:4px;
+  display:flex;flex-direction:column;gap:8px
+}
+.about-feat-card h3{margin:0;font-size:15px;font-weight:600}
+.about-feat-card p{margin:0;font-size:12px;color:#666;line-height:1.6}
+
+.about-cta-box{
+  background:#151413;color:#fff;padding:40px;border-radius:4px;
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start
+}
+.about-cta-box h3{margin:0;font-size:24px;font-weight:400}
+.about-cta-box p{margin:0;font-size:13px;color:#aaa;max-width:54ch;line-height:1.6}
+.about-cta-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 24px;
+  background:#fff;color:#151413;font-size:12px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;text-decoration:none;border-radius:0;margin-top:8px;
+  transition:all .2s ease
+}
+.about-cta-btn:hover{background:#eee}
+
+@media (max-width:768px){
+  .about-hero{padding:36px 20px 24px}
+  .about-content{padding:24px 20px 60px}
+  .about-grid-features{grid-template-columns:1fr;gap:14px}
+  .about-cta-box{padding:24px}
+}

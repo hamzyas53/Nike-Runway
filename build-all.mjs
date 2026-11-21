@@ -1,5 +1,13 @@
 // Master build script: generates index.html & home.html (Home), runway.html (Runway), looks.html (All Looks 2-column), shop.html (Shop), rail.html (Hand Rail Pro), and about.html (About)
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+
+const publicDir = new URL('./public/', import.meta.url);
+mkdirSync(publicDir, { recursive: true });
+
+function writePage(filename, content) {
+  writeFileSync(new URL('./' + filename, import.meta.url), content);
+  writeFileSync(new URL('./public/' + filename, import.meta.url), content);
+}
 
 const A = 'https://reel-ref-try-the-look.vercel.app/assets/';
 const SID = 'template--28035983671601__the_runway_wdM8BG';
@@ -238,8 +246,8 @@ ${sharedBagCode}
 </html>`;
 
 // Write index.html (as root landing page for Vercel) and home.html
-writeFileSync(new URL('./index.html', import.meta.url), homeHtml);
-writeFileSync(new URL('./home.html', import.meta.url), homeHtml);
+writePage('index.html', homeHtml);
+writePage('home.html', homeHtml);
 console.log('Built index.html (Home) and home.html:', homeHtml.length, 'bytes');
 
 /* =========================================================================
@@ -449,7 +457,7 @@ ${runwayJs}
   </script>
 </body>
 </html>`;
-writeFileSync(new URL('./runway.html', import.meta.url), runwayHtml);
+writePage('runway.html', runwayHtml);
 console.log('Built runway.html:', runwayHtml.length, 'bytes');
 
 /* =========================================================================
@@ -502,7 +510,7 @@ ${looksJs}
   </script>
 </body>
 </html>`;
-writeFileSync(new URL('./looks.html', import.meta.url), looksHtml);
+writePage('looks.html', looksHtml);
 console.log('Built looks.html:', looksHtml.length, 'bytes');
 
 /* =========================================================================
@@ -560,7 +568,7 @@ ${shopJs}
   </script>
 </body>
 </html>`;
-writeFileSync(new URL('./shop.html', import.meta.url), shopHtml);
+writePage('shop.html', shopHtml);
 console.log('Built shop.html:', shopHtml.length, 'bytes');
 
 /* =========================================================================
@@ -639,7 +647,7 @@ ${railJs}
   </script>
 </body>
 </html>`;
-writeFileSync(new URL('./rail.html', import.meta.url), railHtml);
+writePage('rail.html', railHtml);
 console.log('Built rail.html:', railHtml.length, 'bytes');
 
 /* =========================================================================
@@ -717,7 +725,9 @@ ${sharedBagCode}
   </script>
 </body>
 </html>`;
-writeFileSync(new URL('./about.html', import.meta.url), aboutHtml);
+writePage('about.html', aboutHtml);
 console.log('Built about.html:', aboutHtml.length, 'bytes');
 
-console.log('Complete build finished successfully!');
+writeFileSync(new URL('./public/catalog.json', import.meta.url), JSON.stringify(catalog, null, 2));
+
+console.log('Complete build finished successfully! Generated both root and public/ output directories.');
